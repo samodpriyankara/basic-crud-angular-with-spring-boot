@@ -7,20 +7,20 @@ import { UserRegistrationService } from '../user-registration.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit{
+export class RegistrationComponent implements OnInit {
 
-user : User = new User("","",0,"");
+  constructor(
+    private registerService: UserRegistrationService
+  ) { }
 
-messege : any = "";
+  user: User = {} as User
+  messge: any;
 
-constructor(private service : UserRegistrationService){};
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  public registerUser() {
+    let res = this.registerService.doRegistration(this.user)
+    res.subscribe((data) => this.messge = data)
   }
 
-  public registerNow(){
-    let responese = this.service.doRegistration(this.user);
-    responese.subscribe((data) => this.messege = data);
-  }
 }

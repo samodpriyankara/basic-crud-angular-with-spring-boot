@@ -1,13 +1,8 @@
 export class User{
-
-name: any
-email: any
-experience: any
-domain: any
-constructor(
-    name:string,
-    email:string,
-    experience:number,
-    domain:string
-){}
+id : number = 0;
+name: string = "";
+email: string = "";
+experience:number = 0;
+domain:string = "";
+    constructor(){ }
 }
